@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int max_length=1000;
+typedef struct
+{
+    int elements[max_length];
+    int top;
+}Stack ;
+
+void CreateStack(Stack *pS)
+{
+    pS->top = 0;
+}
+
+void  Push(Stack* pS, int value)
+{
+    if(pS->top<max_length)
+    {
+        pS->elements[pS->top++]=value;
+    }
+}
+
+void Pop(Stack* pS, int *value)
+{
+    if(pS->top!=0)
+        *value=pS->elements[--pS->top];
+}
+
+int StackSize(Stack* pS)
+{
+    return pS->top;
+}
+
+void ClearStack(Stack* pS)
+{
+    pS->top=0;
+}
+bool isempty(Stack* pS)
+{
+    if(pS->top==0)
+        return true;
+    else
+        return false;
+}
+bool Stackfull(Stack* pS)
+{
+    if(pS->top!=max_length)
+        return true;
+    else
+        return false;
+}
+int Stacktop(Stack* pS)
+{
+    if(pS->top!=0)
+        return pS->elements[pS->top];
+}
+
+void traverseStack(Stack* pS, void(*pf)(int)){
+
+  for(int i=0;i<pS->top;i++)
+    (*pf)(pS->elements[i]);
+}
+
+int main()
+{
+
+	return 0;
+}
+
+
